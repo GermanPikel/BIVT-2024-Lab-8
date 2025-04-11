@@ -15,12 +15,13 @@ namespace Lab_8
 
         public Blue_2(string input, string to_delete) : base(input) {
             _to_delete = to_delete;
-            _output = "";
+            _output = null;
         }
 
         public override void Review()
         {
-            if (String.IsNullOrEmpty(_to_delete) || String.IsNullOrEmpty(this.Input)) return;
+            //if (String.IsNullOrEmpty(_to_delete) || String.IsNullOrEmpty(this.Input)) return;
+            _output = "";
             if (_to_delete.Any(char.IsDigit)) { _output = this.Input; return; };
             string[] splitted_text = this.Input.Split(' ');
             foreach (string word in splitted_text) {
@@ -29,10 +30,6 @@ namespace Lab_8
                 {
                     _output += word + " ";
                 }
-                //else if (!(char.IsLetter(word[word.Length - 1]) || word[word.Length - 1] == '`' || word[word.Length - 1] == '-')) {
-                //    _output = _output.Remove(_output.Length - 1);
-                //    _output += word[word.Length - 1] + " ";
-                //}
                 else if (_punctuation_marks.Contains(word[0]) && _punctuation_marks.Contains(word[word.Length - 1]))
                 {
                     int first = -1; int last = word.Length - 1;
@@ -63,7 +60,7 @@ namespace Lab_8
 
         public string ToString() {
             //if (String.IsNullOrEmpty(this.Input) || String.IsNullOrEmpty(this._output)) return null;
-            return _output;
+            return this.Output;
         }
     }
 }

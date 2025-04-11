@@ -14,11 +14,11 @@ namespace Lab_8
         public string[] Output => _output;
 
         public Blue_1(string input) : base(input) {
-            _output = new string[0];
+            _output = null;
         }
 
         private void AddToOutput(string s) {
-            if (_output == null) return;
+            if (_output == null) _output = new string[0];
             Array.Resize(ref _output, _output.Length + 1);
             _output[_output.Length - 1] = s;
         }
@@ -44,7 +44,6 @@ namespace Lab_8
 
         public override void Review()
         {
-            // if (String.IsNullOrEmpty(this.Input)) { return; }
             MySplit(this.Input);
         }
 
@@ -53,9 +52,9 @@ namespace Lab_8
             string result = "";
             foreach (string s in _output) {
                 if (String.IsNullOrEmpty(s)) break;
-                result += s + '\n';
+                result += s + $"{Environment.NewLine}";
             }
-            result = result.Remove(result.Length - 1);
+            result = result.Remove(result.Length - 2);
             return result;
         }
     }

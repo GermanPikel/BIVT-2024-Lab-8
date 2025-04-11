@@ -15,7 +15,7 @@ namespace Lab_8
         public (char, double)[] Output => _output;
 
         public Blue_3(string input) : base(input) {
-            _output = new (char, double)[0];
+            _output = null;
             _counts = new (char, int)[0];
         }
 
@@ -46,7 +46,7 @@ namespace Lab_8
         }
 
         private void CalcFreq((char, int)[] counts, int word_count) {
-            if (_output == null) return;
+            if (_output == null) { _output = new (char, double)[0]; }
             if (word_count == 0) { return; }
             Array.Resize(ref _output, counts.Length);
             for (int i = 0; i < counts.Length; i++) { 
@@ -74,9 +74,9 @@ namespace Lab_8
             if (_output == null) return null;
             string result = "";
             foreach ((char, double) t in _output) {
-                result += $"{t.Item1} - {t.Item2:F4}\n";
+                result += $"{t.Item1} - {t.Item2:F4}{Environment.NewLine}";
             }
-            result = result.Remove(result.Length - 1);
+            result = result.Remove(result.Length - 2);
             return result;
         }
     }
