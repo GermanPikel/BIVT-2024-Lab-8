@@ -58,7 +58,7 @@ namespace Lab_8
             _output = _output.Trim();
         }
 
-        public string ToString() {
+        public override string ToString() {
             //if (String.IsNullOrEmpty(this.Input) || String.IsNullOrEmpty(this._output)) return null;
             return this.Output;
         }

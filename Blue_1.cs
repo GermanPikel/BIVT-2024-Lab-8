@@ -47,7 +47,7 @@ namespace Lab_8
             MySplit(this.Input);
         }
 
-        public string ToString() {
+        public override string ToString() {
             if (String.IsNullOrEmpty(this.Input) || _output == null) { return null; }
             string result = "";
             foreach (string s in _output) {

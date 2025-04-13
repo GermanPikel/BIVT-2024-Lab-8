@@ -70,7 +70,7 @@ namespace Lab_8
             SortFreq();
         }
 
-        public string ToString() {
+        public override string ToString() {
             if (_output == null) return null;
             string result = "";
             foreach ((char, double) t in _output) {
